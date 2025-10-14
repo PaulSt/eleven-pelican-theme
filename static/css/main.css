@@ -1,0 +1,128 @@
+/* === Base === */
+html, body {
+  background: #fff;
+  color: #111;
+  font-family: monospace, monospace;
+  line-height: 1.1;
+  margin: 0 auto;
+  max-width: 42em;
+  padding: 0 1em;
+  font-size: 0.9em;
+}
+
+/* === Lists === */
+li { 
+    margin: 0 -1em; 
+    padding: 0;
+}
+
+/* === Containers === */
+.w, .box {
+  margin: 1em auto;
+  height: auto;
+}
+.box {
+  padding: 0.1em 1em;
+  border: 1px solid #000;
+  border-radius: 0.0em;
+}
+
+/* === Headers === */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 0.5em 0 0.6em;
+  line-height: 1;
+}
+
+/* --- Default hierarchy --- */
+h1 { font-size: 1.3em; padding-bottom: 0.2em; }
+h2 { font-size: 1.1em; }
+h3, h4, h5, h6 { font-size: 1em; text-decoration: none; }
+
+/* === Text === */
+.post-meta { text-align: right; font-size: 0.9em; opacity: 0.8; }
+code { background: #eee; padding: 0.1em 0.3em; border-radius: 0.2em; }
+
+/* === Tables === */
+table {
+  margin: 1em auto;
+  border-spacing: 0.5em 0;
+}
+
+/* === Code blocks === */
+div.highlighter-rouge code {
+  display: block;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  padding: 1em;
+  background: #f7f7f7;
+  border-left: 3px solid #ddd;
+}
+
+/* === Images === */
+img {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: scale-down;
+}
+
+h2 > img {
+  max-width: 46.5%;
+  max-height: 50%;
+  display: inline-block;
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+
+h1 > img {
+  max-width: 100%;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+img + em {
+  font-size: 0.8rem;
+  text-align: center;
+  display: block;
+  margin: 0.5em auto;
+}
+
+/* === Iframes === */
+iframe {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%;
+  width: 100%;
+  border: none;
+}
+
+/* === Links === */
+a {
+  color: #4478A6;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+a:hover {
+  color: #325b7d;
+  border-color: #325b7d;
+}
+
+/* === Site title === */
+img.logo {
+  height: 7em;
+  width: 7em;
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+  margin: 0 1em 0 0;
+}
+
+.site-name {
+  margin: 0;
+  padding: 0.5em 0.3em;
+  font-size: 1.8em;
+  font-weight: bold;
+}

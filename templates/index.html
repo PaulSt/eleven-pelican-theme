@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<main class="page-content" aria-label="Content">
+<div class="w">
+    <div class="header">
+      {% if ELEVEN_LOGO %}
+        <img src="{{ SITEURL }}/{{ ELEVEN_LOGO }}" class="logo" alt="Logo">
+      {% endif %}
+        <h1 class="site-name">{{ SITENAME }}</h1> <!-- Site Name -->
+          {% for link_name, link_url in LINKS %}
+            &nbsp <a href="{{ SITEURL }}{{ link_url }}">{{ link_name }}</a>
+          {% endfor %}
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+
+  {# --- Static pages with layout=block --- #}
+  {% for page in pages|sort(attribute='order') %}
+    {% if page.layout == 'block' and page.order != 'hidden' %}
+      <div class="box">
+        <h1>{{ page.title }}</h1>
+        {% if page.summary %}
+          {{ page.summary }}
+          <p><a href="{{ SITEURL }}/{{ page.url }}">Read more</a></p>
+        {% else %}
+          {{ page.content }}
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {# --- Custom categories (collections) --- #}
+  {% for category, articles_in_cat in categories %}
+    {% if category != 'posts' %}
+      <div class="box">
+        <h1>{{ category|title }}</h1>
+        <ul>
+          {% for article in articles_in_cat|sort(attribute='order') %}
+            <li>
+              <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  {# --- Blog posts --- #}
+  {% if articles %}
+  <div class="box">
+    <h1>Posts</h1>
+    <ul>
+      {% for article in articles %}
+        {% if article.category.name == 'posts' %}
+        <li>
+          {{ article.date.strftime(ELEVEN_DATE_FORMAT or '%b %d, %Y') }}
+          – <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</main>
+{% endblock %}
