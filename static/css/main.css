@@ -68,6 +68,13 @@ img {
   object-fit: scale-down;
 }
 
+
+h3 > img {
+  max-width: 75%;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
 h2 > img {
   max-width: 46.5%;
   max-height: 50%;
