@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
 /* --- Default hierarchy --- */
 h1 { font-size: 1.3em; padding-bottom: 0.2em; }
 h2 { font-size: 1.1em; }
-h3, h4, h5, h6 { font-size: 1em; text-decoration: none; }
+h3, h4, h5, h6 { line-height: 0; font-size: 1em; text-decoration: none; }
 
 /* === Text === */
 .post-meta { text-align: right; font-size: 0.9em; opacity: 0.8; }

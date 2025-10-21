@@ -3,7 +3,8 @@
 
 {% block content %}
 <main class="page-content" aria-label="Content">
-<div class="w">
+  {% if SHOW_BANNER %}
+  <div class="w">
     <div class="header">
       {% if ELEVEN_LOGO %}
         <img src="{{ SITEURL }}/{{ ELEVEN_LOGO }}" class="logo" alt="Logo">
@@ -15,9 +16,15 @@
     </div>
     <div style="clear: both;"></div>
   </div>
+  {% endif %}
 
   {# --- Static pages with layout=block --- #}
   {% for page in pages|sort(attribute='order') %}
+    {% if page.layout == 'noblock' and page.order != 'hidden' %}
+      <div class="w">
+          {{ page.content }}
+      </div>
+    {% endif %}
     {% if page.layout == 'block' and page.order != 'hidden' %}
       <div class="box">
         <h1>{{ page.title }}</h1>
