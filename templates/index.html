@@ -11,7 +11,11 @@
       {% endif %}
         <h1 class="site-name">{{ SITENAME }}</h1> <!-- Site Name -->
           {% for link_name, link_url in LINKS %}
-            &nbsp <a href="{{ SITEURL }}{{ link_url }}">{{ link_name }}</a>
+            {% if link_url %}
+              &nbsp;<a href="{{ link_url }}">{{ link_name }}</a>
+            {% else %}
+              &nbsp;{{ link_name }}
+            {% endif %}
           {% endfor %}
     </div>
     <div style="clear: both;"></div>
