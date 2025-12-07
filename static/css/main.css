@@ -35,13 +35,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- Default hierarchy --- */
-h1 { font-size: 1.3em; padding-bottom: 0.2em; }
+h1 { font-size: 1.3em; }
+h2, h3, h4, h5, h6 { margin: 1em 0; }
 h2 { font-size: 1.1em; }
 h3, h4, h5, h6 { line-height: 0; font-size: 1em; text-decoration: none; }
 
 /* === Text === */
 .post-meta { text-align: right; font-size: 0.9em; opacity: 0.8; }
-code { background: #eee; padding: 0.1em 0.3em; border-radius: 0.2em; }
 
 /* === Tables === */
 table {
@@ -50,13 +50,33 @@ table {
 }
 
 /* === Code blocks === */
-div.highlighter-rouge code {
-  display: block;
+.highlight {
+  background: #fbf1c7;              /* Gruvbox light bg */
+  border: 1px solid #ebdbb2;
+  border-radius: 6px;
+  padding: .5em;
+  margin: 0em;
   overflow-x: auto;
-  white-space: pre-wrap;
-  padding: 1em;
-  background: #f7f7f7;
-  border-left: 3px solid #ddd;
+}
+
+/* Code font and size */
+.highlight pre,
+.highlight code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.85rem;               
+  line-height: 1.4;
+  background: none !important;
+  color: #3c3836;
+  white-space: pre;                
+  padding: 0 !important;
+}
+
+/* Remove default Pelican/theme pre styles */
+pre {
+  background: none !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* === Images === */
