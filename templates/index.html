@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block content %}
 <main class="page-content" aria-label="Content">
   {% if SHOW_BANNER %}
@@ -9,7 +8,7 @@
       {% if ELEVEN_LOGO %}
         <img src="{{ SITEURL }}/{{ ELEVEN_LOGO }}" class="logo" alt="Logo">
       {% endif %}
-        <h1 class="site-name">{{ SITENAME }}</h1> <!-- Site Name -->
+        <h1 class="site-name">{{ SITENAME }}</h1>
           {% for link_name, link_url in LINKS %}
             {% if link_url %}
               &nbsp;<a href="{{ link_url }}">{{ link_name }}</a>
@@ -24,21 +23,33 @@
 
   {# --- Static pages with layout=block --- #}
   {% for page in pages|sort(attribute='order') %}
-    {% if page.layout == 'noblock' and page.order != 'hidden' %}
-      <div class="w">
-          {{ page.content }}
-      </div>
-    {% endif %}
-    {% if page.layout == 'block' and page.order != 'hidden' %}
-      <div class="box">
-        <h1>{{ page.title }}</h1>
-        {% if page.summary %}
-          {{ page.summary }}
-          <p><a href="{{ SITEURL }}/{{ page.url }}">Read more</a></p>
-        {% else %}
-          {{ page.content }}
-        {% endif %}
-      </div>
+    {% if page.order != 'hidden' %}
+      {% set block_template = page.blocktemplate %}
+
+      {% if page.layout == 'noblock' %}
+        <div class="w">
+          {% if block_template %}
+            {% include block_template %}
+          {% else %}
+            {{ page.content }}
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if page.layout == 'block' %}
+        <div class="box{% if page.slug %} box-{{ page.slug }}{% endif %}">
+          <h1>{{ page.title }}</h1>
+
+          {% if block_template %}
+            {% include block_template %}
+          {% elif page.summary %}
+            {{ page.summary }}
+            <p><a href="{{ SITEURL }}/{{ page.url }}">Read more</a></p>
+          {% else %}
+            {{ page.content }}
+          {% endif %}
+        </div>
+      {% endif %}
     {% endif %}
   {% endfor %}
 
