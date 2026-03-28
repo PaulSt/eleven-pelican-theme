@@ -3,16 +3,16 @@
 {% block content %}
 <main class="page-content" aria-label="Content">
   <div class="w">
-    {% if article.prev_article %}
-      <a href="{{ SITEURL }}/{{ article.prev_article.url }}">&lt;</a>
+    {% if article.prev_article_in_category %}
+      <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url }}">&lt;</a>
     {% else %}
       &nbsp;
     {% endif %}
 
     <a href="{{ SITEURL }}/">^</a>
 
-    {% if article.next_article %}
-      <a href="{{ SITEURL }}/{{ article.next_article.url }}">&gt;</a>
+    {% if article.next_article_in_category %}
+      <a href="{{ SITEURL }}/{{ article.next_article_in_category.url }}">&gt;</a>
     {% endif %}
   </div>
 
