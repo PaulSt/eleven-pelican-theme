@@ -7,7 +7,7 @@ html, body {
   margin: 0 auto;
   max-width: 42em;
   padding: 0em;
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 /* === Lists === */
@@ -55,7 +55,7 @@ table {
   border: 1px solid #ebdbb2;
   border-radius: 6px;
   padding: .5em;
-  margin: 0em;
+  margin: .75em 0;
   overflow-x: auto;
 }
 
